@@ -61,6 +61,7 @@ jobs:
           name: screenshots
           path: target/screenshots
       - name: Generate ExtentReports
+        if: always()
         run: mvn site
 
       - name: Deploy to GitHub Pages
