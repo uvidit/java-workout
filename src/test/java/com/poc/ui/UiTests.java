@@ -2,24 +2,23 @@ package com.poc.ui;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.Status;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.poc.utils.CustomExtentReporterManager;
+import com.poc.utils.CustomWebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
+import java.util.UUID;
+import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UiTests {
     public static final String BTN_ACCEPT_ALL = "//button[./div[text()='Accept all']]";
     public static final String BTN_LUCKY = "input[value*='Lucky']";
+    private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
     private WebDriver driver;
     private final Properties props = new Properties();
 
@@ -35,53 +35,22 @@ public class UiTests {
 
     @BeforeAll
     public static void setUpReport() {
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("target/extent-report.html");
-        extent = new ExtentReports();
-        extent.attachReporter(sparkReporter);
+        Injector injector = Guice.createInjector( new CustomExtentReporterManager());
+        extent = injector.getInstance(ExtentReports.class);
     }
 
     @BeforeEach
     public void setup(TestInfo testInfo) throws IOException {
         test = extent.createTest(testInfo.getDisplayName());
+        Injector injector = Guice.createInjector( new CustomWebDriverManager());
+        driver = injector.getInstance(WebDriver.class);
+
 
         FileInputStream configFile = new FileInputStream(
                 String.format("src/test/resources/%s.properties"
 //                        , System.getProperty("env", "local-chrome")));
                         , System.getProperty("env", "local-firefox")));
         props.load(configFile);
-        switch (props.getProperty("browser")) {
-            case "chrome" -> {
-                WebDriverManager.chromedriver().browserVersion("126.0.6478.127").setup();
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--lang=en-US");
-                options.addArguments("--start-maximized");
-                driver = new ChromeDriver(); }
-            case "headless-chrome" -> {
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
-                options.addArguments("--disable-gpu");
-                options.addArguments("--window-size=1920,1080");
-                driver = new ChromeDriver(options); }
-            case "firefox" -> {
-                WebDriverManager.firefoxdriver().setup();
-                FirefoxProfile profile = new FirefoxProfile();
-                profile.setPreference("intl.accept_languages", "en-US");
-                profile.setPreference("general.useragent.locale", "en-US");
-                profile.setPreference("intl.locale.requested", "en-US");
-                profile.setPreference("intl.locale.matchOS", "false");
-                profile.setPreference("browser.fixup.alternate.enabled", false);
-                profile.setPreference("geo.enabled", false);
-                profile.setPreference("geo.provider.use_gpsd", false);
-                profile.setPreference("geo.prompt.testing", false);
-                profile.setPreference("geo.prompt.testing.allow", false);
-                FirefoxOptions options = new FirefoxOptions();
-                options.setProfile(profile);
-                options.addArguments("--start-maximized");
-                driver = new FirefoxDriver();
-            }
-            default -> throw new IllegalArgumentException("Invalid browser");
-        }
         // Create screenshots directory if it doesn't exist
         Path screenshotsDir = Paths.get("target/screenshots");
         if (!Files.exists(screenshotsDir)) {
@@ -127,8 +96,9 @@ public class UiTests {
     public void takeScreenshot(String name) {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            Files.copy(screenshot.toPath(), new File("target/screenshots/" + name + ".png").toPath());
-            test.addScreenCaptureFromPath("target/screenshots/" + name + ".png");
+            String fullFileNamePath = String.format("target/screenshots/%s-%s.png", name, UUID.randomUUID());
+            Files.copy(screenshot.toPath(), new File(fullFileNamePath).toPath());
+            test.addScreenCaptureFromPath(fullFileNamePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
