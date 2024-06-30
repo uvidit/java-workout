@@ -1,10 +1,7 @@
 package com.poc.api;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.poc.utils.CustomExtentReporterManager;
+import com.poc.utils.BaseTestEnvConfigurator;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
 
@@ -17,19 +14,17 @@ import static org.hamcrest.Matchers.equalTo;
 public class ApiTests {
 
     private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
-    private static ExtentReports extent;
     private ExtentTest test;
 
     @BeforeAll
     public static void setUp() {
-        Injector injector = Guice.createInjector( new CustomExtentReporterManager());
-        extent = injector.getInstance(ExtentReports.class);
+        BaseTestEnvConfigurator.getConfigurator();
     }
 
     @BeforeEach
     public void setUpTest(TestInfo testInfo) {
         logger.info(" ** Starting test: " + testInfo.getDisplayName());
-        test = extent.createTest(testInfo.getDisplayName());
+        test = BaseTestEnvConfigurator.extent.createTest(testInfo.getDisplayName());
     }
 
     @Test
@@ -61,6 +56,6 @@ public class ApiTests {
 
     @AfterEach
     public void tearDown() {
-        extent.flush();
+        BaseTestEnvConfigurator.extent.flush();
     }
 }

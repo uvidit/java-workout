@@ -5,7 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.poc.utils.CustomExtentReporterManager;
+import com.poc.utils.BaseTestEnvConfigurator;
 import com.poc.utils.CustomWebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
@@ -30,11 +30,11 @@ public class UiTests {
     private static final Properties props = new Properties();
     private WebDriver driver;
 
-    private static ExtentReports extent;
     private ExtentTest test;
 
     @BeforeAll
     public static void setUpReport() throws IOException {
+        BaseTestEnvConfigurator.getConfigurator();
         FileInputStream configFile = new FileInputStream(
                 String.format("src/test/resources/%s.properties"
 //                        , System.getProperty("env", "local-chrome")));
@@ -49,15 +49,11 @@ public class UiTests {
                 e.printStackTrace();
             }
         }
-
-
-        Injector injector = Guice.createInjector( new CustomExtentReporterManager());
-        extent = injector.getInstance(ExtentReports.class);
     }
 
     @BeforeEach
     public void setup(TestInfo testInfo) {
-        test = extent.createTest(testInfo.getDisplayName());
+        test = BaseTestEnvConfigurator.extent.createTest(testInfo.getDisplayName());
         Injector injector = Guice.createInjector( new CustomWebDriverManager());
         driver = injector.getInstance(WebDriver.class);
 
@@ -90,7 +86,7 @@ public class UiTests {
             takeScreenshot("Final state of test");
             driver.quit();
         }
-        extent.flush();
+        BaseTestEnvConfigurator.extent.flush();
     }
 
     public void takeScreenshot(String name) {
