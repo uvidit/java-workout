@@ -60,3 +60,17 @@ jobs:
         with:
           name: screenshots
           path: target/screenshots
+      - name: Generate ExtentReports
+        run: mvn site
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone --branch gh-pages https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} gh-pages
+          rsync -av --exclude='.git' target/site/ gh-pages/
+          cd gh-pages
+          git add .
+          git commit -m "Deploy report - $GITHUB_SHA"
+          git push origin gh-pages
