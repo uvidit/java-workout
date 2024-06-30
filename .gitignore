@@ -1,4 +1,6 @@
 /.git-credentials
+/.idea/
+/target/
 
 # Compiled class file
 *.class
