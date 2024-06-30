@@ -35,7 +35,7 @@ public class UiTests {
 
     @BeforeAll
     public static void setUpReport() {
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extent-report.html");
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("target/extent-report.html");
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
     }
