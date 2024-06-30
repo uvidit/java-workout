@@ -57,7 +57,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git clone --branch gh-pages https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} gh-pages
-          rsync -av --exclude='.git' target/ gh-pages/
+          cd gh-pages
+          git rm -rf .
+          cd ..
+          rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/surefire-reports/ gh-pages/
+          rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/extent-report.html gh-pages/
+          rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/screenshots/ gh-pages/screenshots/
           cd gh-pages
           echo "<meta http-equiv='refresh' content='0; url=extent-report.html'>" > index.html
           git add .
