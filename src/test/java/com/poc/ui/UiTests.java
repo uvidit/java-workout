@@ -41,7 +41,7 @@ public class UiTests {
                 options.addArguments("--start-maximized");
                 driver = new ChromeDriver(); }
             case "headless-chrome" -> {
-                WebDriverManager.chromedriver().browserVersion("126.0.6478.127").setup();
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
