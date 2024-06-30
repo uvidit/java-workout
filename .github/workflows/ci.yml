@@ -48,12 +48,14 @@ jobs:
 
       # Uploading test reports
       - name: Upload ExtentReports
+        if: always()
         uses: actions/upload-artifact@v2
         with:
          name: extent-report
          path: extent-report.html
 
       - name: Upload Screenshots
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: screenshots
