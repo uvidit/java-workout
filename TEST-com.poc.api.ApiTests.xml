@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.poc.api.ApiTests" time="1.387" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.poc.api.ApiTests" time="1.422" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="webdriver.chrome.driver" value="/home/runner/.cache/selenium/chromedriver/linux64/126.0.6478.126/chromedriver"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/lib"/>
-    <property name="sun.java.command" value="/home/runner/work/java-workout/java-workout/target/surefire/surefirebooter8808493647863322971.jar /home/runner/work/java-workout/java-workout/target/surefire 2024-06-30T18-26-30_264-jvmRun1 surefire14273111224959055458tmp surefire_07201137051153921485tmp"/>
+    <property name="sun.java.command" value="/home/runner/work/java-workout/java-workout/target/surefire/surefirebooter1744693938626905163.jar /home/runner/work/java-workout/java-workout/target/surefire 2024-06-30T18-36-13_995-jvmRun1 surefire8281751783776346293tmp surefire_06661431227156116642tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/runner/work/java-workout/java-workout/target/test-classes:/home/runner/work/java-workout/java-workout/target/classes:/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar:/home/runner/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/runner/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/runner/.m2/repository/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar:/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.7.0/junit-jupiter-engine-5.7.0.jar:/home/runner/.m2/repository/org/junit/platform/junit-platform-engine/1.7.0/junit-platform-engine-1.7.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-java/4.22.0/selenium-java-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-api/4.22.0/selenium-api-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.22.0/selenium-chrome-driver-4.22.0.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.22.0/selenium-chromium-driver-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-json/4.22.0/selenium-json-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.22.0/selenium-manager-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v124/4.22.0/selenium-devtools-v124-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v125/4.22.0/selenium-devtools-v125-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v126/4.22.0/selenium-devtools-v126-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v85/4.22.0/selenium-devtools-v85-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.22.0/selenium-edge-driver-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.22.0/selenium-firefox-driver-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-http/4.22.0/selenium-http-4.22.0.jar:/home/runner/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.22.0/selenium-ie-driver-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.22.0/selenium-remote-driver-4.22.0.jar:/home/runner/.m2/repository/io/opentelemetry/semconv/opentelemetry-semconv/1.25.0-alpha/opentelemetry-semconv-1.25.0-alpha.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-api/1.39.0/opentelemetry-api-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-context/1.39.0/opentelemetry-context-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.39.0/opentelemetry-exporter-logging-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.39.0/opentelemetry-sdk-common-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.39.0/opentelemetry-sdk-extension-autoconfigure-spi-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.39.0/opentelemetry-sdk-extension-autoconfigure-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-api-incubator/1.39.0-alpha/opentelemetry-api-incubator-1.39.0-alpha.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.39.0/opentelemetry-sdk-trace-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.39.0/opentelemetry-sdk-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.39.0/opentelemetry-sdk-metrics-1.39.0.jar:/home/runner/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.39.0/opentelemetry-sdk-logs-1.39.0.jar:/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.14.17/byte-buddy-1.14.17.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-os/4.22.0/selenium-os-4.22.0.jar:/home/runner/.m2/repository/org/apache/commons/commons-exec/1.4.0/commons-exec-1.4.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.22.0/selenium-safari-driver-4.22.0.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-support/4.22.0/selenium-support-4.22.0.jar:/home/runner/.m2/repository/io/rest-assured/rest-assured/4.3.3/rest-assured-4.3.3.jar:/home/runner/.m2/repository/org/codehaus/groovy/groovy/3.0.7/groovy-3.0.7.jar:/home/runner/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.7/groovy-xml-3.0.7.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/home/runner/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/runner/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/runner/.m2/repository/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar:/home/runner/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/home/runner/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/home/runner/.m2/repository/io/rest-assured/json-path/4.3.3/json-path-4.3.3.jar:/home/runner/.m2/repository/org/codehaus/groovy/groovy-json/3.0.7/groovy-json-3.0.7.jar:/home/runner/.m2/repository/io/rest-assured/rest-assured-common/4.3.3/rest-assured-common-4.3.3.jar:/home/runner/.m2/repository/io/rest-assured/xml-path/4.3.3/xml-path-4.3.3.jar:/home/runner/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/home/runner/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/home/runner/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar:/home/runner/.m2/repository/org/assertj/assertj-core/3.21.0/assertj-core-3.21.0.jar:/home/runner/.m2/repository/io/github/bonigarcia/webdrivermanager/5.9.1/webdrivermanager-5.9.1.jar:/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/home/runner/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/home/runner/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/home/runner/.m2/repository/com/github/docker-java/docker-java/3.3.6/docker-java-3.3.6.jar:/home/runner/.m2/repository/com/github/docker-java/docker-java-core/3.3.6/docker-java-core-3.3.6.jar:/home/runner/.m2/repository/com/github/docker-java/docker-java-api/3.3.6/docker-java-api-3.3.6.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar:/home/runner/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/home/runner/.m2/repository/com/github/docker-java/docker-java-transport-httpclient5/3.3.6/docker-java-transport-httpclient5-3.3.6.jar:/home/runner/.m2/repository/com/github/docker-java/docker-java-transport/3.3.6/docker-java-transport-3.3.6.jar:/home/runner/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/home/runner/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/home/runner/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar:/home/runner/.m2/repository/org/apache/commons/commons-compress/1.26.2/commons-compress-1.26.2.jar:/home/runner/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/home/runner/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.2.1/httpclient5-5.2.1.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.2/httpcore5-5.2.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.2/httpcore5-h2-5.2.jar:/home/runner/.m2/repository/com/aventstack/extentreports/5.1.0/extentreports-5.1.0.jar:/home/runner/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.6/rxjava-3.1.6.jar:/home/runner/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/home/runner/.m2/repository/org/freemarker/freemarker/2.3.32/freemarker-2.3.32.jar:/home/runner/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar:/home/runner/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/home/runner/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/runner/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/runner/.m2/repository/com/google/guava/guava/30.1-jre/guava-30.1-jre.jar:/home/runner/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/runner/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/runner/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/runner/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/home/runner/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -29,7 +29,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/runner/work/java-workout/java-workout/target/surefire/surefirebooter8808493647863322971.jar"/>
+    <property name="surefire.real.class.path" value="/home/runner/work/java-workout/java-workout/target/surefire/surefirebooter1744693938626905163.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.11+9"/>
     <property name="user.name" value="runner"/>
@@ -55,12 +55,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="getRequestLog" classname="com.poc.api.ApiTests" time="1.341">
+  <testcase name="getRequestLog" classname="com.poc.api.ApiTests" time="1.345">
     <system-out><![CDATA[{
     "time": {
-        "updated": "Jun 30, 2024 18:26:24 UTC",
-        "updatedISO": "2024-06-30T18:26:24+00:00",
-        "updateduk": "Jun 30, 2024 at 19:26 BST"
+        "updated": "Jun 30, 2024 18:36:06 UTC",
+        "updatedISO": "2024-06-30T18:36:06+00:00",
+        "updateduk": "Jun 30, 2024 at 19:36 BST"
     },
     "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
     "chartName": "Bitcoin",
@@ -68,37 +68,37 @@
         "USD": {
             "code": "USD",
             "symbol": "&#36;",
-            "rate": "61,678.669",
+            "rate": "61,699.447",
             "description": "United States Dollar",
-            "rate_float": 61678.6692
+            "rate_float": 61699.4469
         },
         "GBP": {
             "code": "GBP",
             "symbol": "&pound;",
-            "rate": "48,748.23",
+            "rate": "48,764.652",
             "description": "British Pound Sterling",
-            "rate_float": 48748.2296
+            "rate_float": 48764.6515
         },
         "EUR": {
             "code": "EUR",
             "symbol": "&euro;",
-            "rate": "57,560.261",
+            "rate": "57,579.652",
             "description": "Euro",
-            "rate_float": 57560.2611
+            "rate_float": 57579.6515
         }
     }
 }
 ]]></system-out>
-    <system-err><![CDATA[Jun 30, 2024 6:26:38 PM com.poc.api.ApiTests setUpTest
+    <system-err><![CDATA[Jun 30, 2024 6:36:20 PM com.poc.api.ApiTests setUpTest
 INFO:  ** Starting test: getRequestLog()
-Jun 30, 2024 6:26:39 PM com.poc.api.ApiTests getRequestLog
+Jun 30, 2024 6:36:21 PM com.poc.api.ApiTests getRequestLog
 INFO:  - checking ConsoleLogger for 'getRequestLog'
 ]]></system-err>
   </testcase>
-  <testcase name="testGetRequest" classname="com.poc.api.ApiTests" time="0.041">
-    <system-err><![CDATA[Jun 30, 2024 6:26:39 PM com.poc.api.ApiTests setUpTest
+  <testcase name="testGetRequest" classname="com.poc.api.ApiTests" time="0.071">
+    <system-err><![CDATA[Jun 30, 2024 6:36:21 PM com.poc.api.ApiTests setUpTest
 INFO:  ** Starting test: testGetRequest()
-Jun 30, 2024 6:26:39 PM com.poc.api.ApiTests testGetRequest
+Jun 30, 2024 6:36:21 PM com.poc.api.ApiTests testGetRequest
 INFO:  - checking ConsoleLogger for 'testGetRequest'
 ]]></system-err>
   </testcase>
