@@ -17,4 +17,4 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -Duser.language=en -Duser.country=US
       - name: Run tests
-        run: mvn test -Duser.language=en -Duser.country=US
+        run: mvn test -Duser.language=en -Duser.country=US -Denv=github-actions
