@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.poc.ui.UiTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.933 s <<< FAILURE! - in com.poc.ui.UiTests
-com.poc.ui.UiTests.simpleTest  Time elapsed: 2.743 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.617 s <<< FAILURE! - in com.poc.ui.UiTests
+com.poc.ui.UiTests.simpleTest  Time elapsed: 10.422 s  <<< ERROR!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"xpath","selector":"//button[./div[text()='Accept all']]"}
   (Session info: chrome-headless-shell=126.0.6478.126)
@@ -10,9 +10,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.22.0', revision: 'c5f3146703*'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1022-azure', java.version: '17.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ca8303c3d8a0c30a68729ff5ab1f5c58, findElement {value=//button[./div[text()='Accept all']], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 126.0.6478.126, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:42011}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:42011/devtoo..., se:cdpVersion: 126.0.6478.126, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ca8303c3d8a0c30a68729ff5ab1f5c58
+Command: [70a68f01a46e717ec7b921e108d42a9b, findElement {value=//button[./div[text()='Accept all']], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 126.0.6478.126, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:41103}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:41103/devtoo..., se:cdpVersion: 126.0.6478.126, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 70a68f01a46e717ec7b921e108d42a9b
 	at com.poc.ui.UiTests.getAcceptAllBtn(UiTests.java:115)
 	at com.poc.ui.UiTests.simpleTest(UiTests.java:103)
 
