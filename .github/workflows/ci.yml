@@ -47,22 +47,9 @@ jobs:
           DISPLAY: :99.0
 
       # Uploading test reports
-      - name: Upload ExtentReports
+      - name: Generate Surefire Report
         if: always()
-        uses: actions/upload-artifact@v2
-        with:
-         name: extent-report
-         path: extent-report.html
-
-      - name: Upload Screenshots
-        if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: screenshots
-          path: target/screenshots
-      - name: Generate ExtentReports
-        if: always()
-        run: mvn site
+        run: mvn surefire-report:report-only
 
       - name: Deploy to GitHub Pages
         if: always()
@@ -75,3 +62,17 @@ jobs:
           git add .
           git commit -m "Deploy report - $GITHUB_SHA"
           git push origin gh-pages
+
+      - name: Upload ExtentReports
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: extent-report
+          path: extent-report.html
+
+      - name: Upload Screenshots
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: target/screenshots
