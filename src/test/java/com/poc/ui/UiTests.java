@@ -27,25 +27,14 @@ public class UiTests {
     public static final String BTN_ACCEPT_ALL = "//button[./div[text()='Accept all']]";
     public static final String BTN_LUCKY = "input[value*='Lucky']";
     private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
+    private static final Properties props = new Properties();
     private WebDriver driver;
-    private final Properties props = new Properties();
 
     private static ExtentReports extent;
     private ExtentTest test;
 
     @BeforeAll
-    public static void setUpReport() {
-        Injector injector = Guice.createInjector( new CustomExtentReporterManager());
-        extent = injector.getInstance(ExtentReports.class);
-    }
-
-    @BeforeEach
-    public void setup(TestInfo testInfo) throws IOException {
-        test = extent.createTest(testInfo.getDisplayName());
-        Injector injector = Guice.createInjector( new CustomWebDriverManager());
-        driver = injector.getInstance(WebDriver.class);
-
-
+    public static void setUpReport() throws IOException {
         FileInputStream configFile = new FileInputStream(
                 String.format("src/test/resources/%s.properties"
 //                        , System.getProperty("env", "local-chrome")));
@@ -60,6 +49,17 @@ public class UiTests {
                 e.printStackTrace();
             }
         }
+
+
+        Injector injector = Guice.createInjector( new CustomExtentReporterManager());
+        extent = injector.getInstance(ExtentReports.class);
+    }
+
+    @BeforeEach
+    public void setup(TestInfo testInfo) {
+        test = extent.createTest(testInfo.getDisplayName());
+        Injector injector = Guice.createInjector( new CustomWebDriverManager());
+        driver = injector.getInstance(WebDriver.class);
 
         driver.get(props.getProperty("baseUrl"));
     }

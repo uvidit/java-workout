@@ -6,10 +6,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.poc.utils.CustomExtentReporterManager;
 import io.restassured.RestAssured;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 
 import java.lang.invoke.MethodHandles;
 import java.util.logging.Logger;
@@ -60,5 +57,10 @@ public class ApiTests {
                 .body("chartName", equalTo("Bitcoin"));
         logger.info(" - checking ConsoleLogger for 'getRequestLog'");
         test.info(" - checking ExtentLogger for 'getRequestLog'");
+    }
+
+    @AfterEach
+    public void tearDown() {
+        extent.flush();
     }
 }
