@@ -59,6 +59,7 @@ jobs:
           git clone --branch gh-pages https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} gh-pages
           cd gh-pages
           git rm -rf .
+          mkdir -p target/screenshots
           cd ..
           rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/surefire-reports/ gh-pages/
           rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/extent-report.html gh-pages/
