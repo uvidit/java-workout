@@ -14,6 +14,7 @@
         <rest-assured.version>4.3.3</rest-assured.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <assertj-core.version>3.21.0</assertj-core.version>
+        <extentreports.version>5.1.0</extentreports.version>
     </properties>
     <name>java-workout</name>
     <url>http://maven.apache.org</url>
@@ -50,6 +51,12 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+        <!-- ExtentReports Dependencies -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
         </dependency>
     </dependencies>
 

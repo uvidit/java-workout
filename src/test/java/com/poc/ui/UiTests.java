@@ -1,20 +1,24 @@
 package com.poc.ui;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.Status;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,8 +30,20 @@ public class UiTests {
     private WebDriver driver;
     private final Properties props = new Properties();
 
+    private static ExtentReports extent;
+    private ExtentTest test;
+
+    @BeforeAll
+    public static void setUpReport() {
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extent-report.html");
+        extent = new ExtentReports();
+        extent.attachReporter(sparkReporter);
+    }
+
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup(TestInfo testInfo) throws IOException {
+        test = extent.createTest(testInfo.getDisplayName());
+
         FileInputStream configFile = new FileInputStream(
                 String.format("src/test/resources/%s.properties"
 //                        , System.getProperty("env", "local-chrome")));
@@ -66,14 +82,29 @@ public class UiTests {
             }
             default -> throw new IllegalArgumentException("Invalid browser");
         }
+        // Create screenshots directory if it doesn't exist
+        Path screenshotsDir = Paths.get("target/screenshots");
+        if (!Files.exists(screenshotsDir)) {
+            try {
+                Files.createDirectories(screenshotsDir);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         driver.get(props.getProperty("baseUrl"));
     }
 
     @Test
+    @DisplayName("Test Google search Smoke Test")
     public void simpleTest() {
+        test.log(Status.INFO, "Navigated to Google");
+
         getAcceptAllBtn().click();
         assertThat(driver.getTitle()).isEqualTo("Google");
         assertThat(getLuckyBtn().isEnabled()).isTrue();
+
+        assertThat(getLuckyBtn().isEnabled()).isFalse();
     }
 
     private WebElement getLuckyBtn() {
@@ -86,6 +117,20 @@ public class UiTests {
 
     @AfterEach
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            takeScreenshot("Final state of test");
+            driver.quit();
+        }
+        extent.flush();
+    }
+
+    public void takeScreenshot(String name) {
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            Files.copy(screenshot.toPath(), new File("target/screenshots/" + name + ".png").toPath());
+            test.addScreenCaptureFromPath("target/screenshots/" + name + ".png");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

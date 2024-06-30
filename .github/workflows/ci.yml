@@ -45,3 +45,16 @@ jobs:
         run: xvfb-run -a mvn test -Denv=github-actions
         env:
           DISPLAY: :99.0
+
+      # Uploading test reports
+      - name: Upload ExtentReports
+        uses: actions/upload-artifact@v2
+        with:
+         name: extent-report
+         path: extent-report.html
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: target/screenshots
