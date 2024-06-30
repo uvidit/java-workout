@@ -5,11 +5,13 @@ import com.poc.utils.BaseTestEnvConfigurator;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
 
+import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.util.logging.Logger;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static com.poc.utils.BaseTestEnvConfigurator.extent;
 
 public class ApiTests {
 
@@ -17,14 +19,14 @@ public class ApiTests {
     private ExtentTest test;
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws IOException {
         BaseTestEnvConfigurator.getConfigurator();
     }
 
     @BeforeEach
     public void setUpTest(TestInfo testInfo) {
         logger.info(" ** Starting test: " + testInfo.getDisplayName());
-        test = BaseTestEnvConfigurator.extent.createTest(testInfo.getDisplayName());
+        test = extent.createTest(testInfo.getDisplayName());
     }
 
     @Test
@@ -56,6 +58,6 @@ public class ApiTests {
 
     @AfterEach
     public void tearDown() {
-        BaseTestEnvConfigurator.extent.flush();
+        extent.flush();
     }
 }

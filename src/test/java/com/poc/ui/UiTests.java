@@ -1,6 +1,5 @@
 package com.poc.ui;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.google.inject.Guice;
@@ -20,6 +19,8 @@ import java.util.Properties;
 import java.util.UUID;
 import java.util.logging.Logger;
 
+import static com.poc.utils.BaseTestEnvConfigurator.props;
+import static com.poc.utils.BaseTestEnvConfigurator.extent;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -27,7 +28,6 @@ public class UiTests {
     public static final String BTN_ACCEPT_ALL = "//button[./div[text()='Accept all']]";
     public static final String BTN_LUCKY = "input[value*='Lucky']";
     private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
-    private static final Properties props = new Properties();
     private WebDriver driver;
 
     private ExtentTest test;
@@ -35,11 +35,6 @@ public class UiTests {
     @BeforeAll
     public static void setUpReport() throws IOException {
         BaseTestEnvConfigurator.getConfigurator();
-        FileInputStream configFile = new FileInputStream(
-                String.format("src/test/resources/%s.properties"
-//                        , System.getProperty("env", "local-chrome")));
-                        , System.getProperty("env", "local-firefox")));
-        props.load(configFile);
         // Create screenshots directory if it doesn't exist
         Path screenshotsDir = Paths.get("target/screenshots");
         if (!Files.exists(screenshotsDir)) {
