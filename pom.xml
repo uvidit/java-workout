@@ -12,9 +12,10 @@
         <selenium-java.version>4.22.0</selenium-java.version>
         <webdrivermanager.version>5.9.1</webdrivermanager.version>
         <rest-assured.version>4.3.3</rest-assured.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <assertj-core.version>3.21.0</assertj-core.version>
         <extentreports.version>5.1.0</extentreports.version>
+        <guice.version>5.0.1</guice.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     </properties>
     <name>java-workout</name>
     <url>http://maven.apache.org</url>
@@ -58,7 +59,14 @@
             <artifactId>extentreports</artifactId>
             <version>${extentreports.version}</version>
         </dependency>
+        <!-- Google Guice Dependencies -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
@@ -76,7 +84,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>default-cli</id>

@@ -1,6 +1,11 @@
 name: Java CI
 
-on: [ push, pull_request ]
+on:
+  push:
+    branches-ignore:
+      - '**/dependabot/**'
+      - '**/dependabot-pr/**'
+      - '**/dependabot-bot/**'
 
 jobs:
   build:
@@ -62,7 +67,7 @@ jobs:
           mkdir -p target/screenshots
           cd ..
           rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/surefire-reports/ gh-pages/
-          rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/extent-report.html gh-pages/
+          rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' extent-report.html gh-pages/
           rsync -av --exclude='.git' --exclude='*.class' --exclude='*.jar' --exclude='*.java' target/screenshots/ gh-pages/target/screenshots/
           cd gh-pages
           echo "<meta http-equiv='refresh' content='0; url=extent-report.html'>" > index.html
