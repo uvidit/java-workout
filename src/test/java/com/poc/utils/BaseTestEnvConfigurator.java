@@ -5,7 +5,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -24,7 +23,6 @@ public class BaseTestEnvConfigurator {
 
             FileInputStream configFile = new FileInputStream(
                     String.format("src/test/resources/%s.properties"
-//                        , System.getProperty("env", "local-chrome")));
                             , System.getProperty("env", "local-firefox")));
             props.load(configFile);
 
