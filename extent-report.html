@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 30, 2024 08:51:30 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jul 1, 2024 06:32:59 PM</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('author-view')">
+<a id="nav-author" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-user"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -67,39 +72,48 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="warning" href="#"><span>Warning</span><span class="status warning"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+<ul id="author-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">NotMe</a><a class="dropdown-item" href="#">JohnDoe</a>
 </ul>
 </li>
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Test Google search Smoke Test</p>
+            <p class="name">UI: simpleTest (Should PASSED...)</p>
             <p class="text-sm">
-              <span>8:51:31 PM</span> / <span>00:00:02:767</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:33:00 PM</span> / <span>00:00:11:843</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Test Google search Smoke Test</h5>
-<span class='badge badge-success'>06.30.2024 8:51:31 PM</span>
-<span class='badge badge-danger'>06.30.2024 8:51:33 PM</span>
-<span class='badge badge-default'>00:00:02:767</span>
+<h5 class="test-status text-fail">UI: simpleTest (Should PASSED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:00 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:11 PM</span>
+<span class='badge badge-default'>00:00:11:843</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
 </div>
 </div>    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='target/screenshots/Final state of test-2a4ca406-8f7c-4c09-ba75-ee27a7f90bb1.png' src="target/screenshots/Final state of test-2a4ca406-8f7c-4c09-ba75-ee27a7f90bb1.png">
+<img data-featherlight='target/screenshots/Final state of test-df1fff2d-962f-4507-8901-4a87a10229c4.png' src="target/screenshots/Final state of test-df1fff2d-962f-4507-8901-4a87a10229c4.png">
     
     </div></div>
 <div class="detail-body mt-4">
@@ -108,9 +122,25 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:51:33 PM</td>
+        <td>6:33:11 PM</td>
         <td>
-          Navigated to Google
+           - You can log here as well (UI: simpleTest (Should PASSED...)).
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:33:11 PM</td>
+        <td>
+          Test Failed
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[./div[text()='Accept all']]"}
+  (Session info: chrome=126.0.6478.126)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1022-azure', java.version: '17.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [472f59b908bd44f16b69320d87824d9b, findElement {using=xpath, value=//button[./div[text()='Accept all']]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.126, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36879}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36879/devtoo..., se:cdpVersion: 126.0.6478.126, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 472f59b908bd44f16b69320d87824d9b
         </td>
       </tr>
   </tbody>
@@ -123,9 +153,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">getRequestLog()</p>
+            <p class="name">UI: smoke (Should PASSED...)</p>
             <p class="text-sm">
-              <span>8:51:34 PM</span> / <span>00:00:01:240</span>
+              <span>6:33:11 PM</span> / <span>00:00:01:328</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -133,24 +163,35 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">getRequestLog()</h5>
-<span class='badge badge-success'>06.30.2024 8:51:34 PM</span>
-<span class='badge badge-danger'>06.30.2024 8:51:35 PM</span>
-<span class='badge badge-default'>00:00:01:240</span>
+<h5 class="test-status text-pass">UI: smoke (Should PASSED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:11 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:13 PM</span>
+<span class='badge badge-default'>00:00:01:328</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
 </div>
-</div><div class="detail-body mt-4">
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='target/screenshots/Final state of test-9f780819-7294-4c5a-a7f9-b91d1ae98dc2.png' src="target/screenshots/Final state of test-9f780819-7294-4c5a-a7f9-b91d1ae98dc2.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:51:35 PM</td>
+        <td>6:33:13 PM</td>
         <td>
-           - checking ExtentLogger for 'getRequestLog'
+           - You can log here as well (UI: smoke (Should PASSED...)).
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>6:33:13 PM</td>
+        <td>
+          Test Passed
         </td>
       </tr>
   </tbody>
@@ -158,26 +199,120 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="3"
+        <li class="test-item"  status="fail" test-id="3"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">testGetRequest()</p>
+            <p class="name">UI: alwaysFailingUiTest (Should FAILED...)</p>
             <p class="text-sm">
-              <span>8:51:35 PM</span> / <span>00:00:00:052</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:33:13 PM</span> / <span>00:00:01:879</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testGetRequest()</h5>
-<span class='badge badge-success'>06.30.2024 8:51:35 PM</span>
-<span class='badge badge-danger'>06.30.2024 8:51:35 PM</span>
-<span class='badge badge-default'>00:00:00:052</span>
+<h5 class="test-status text-fail">UI: alwaysFailingUiTest (Should FAILED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:13 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:15 PM</span>
+<span class='badge badge-default'>00:00:01:879</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='target/screenshots/Final state of test-3a2a9683-63ed-4a16-9060-7141646f117a.png' src="target/screenshots/Final state of test-3a2a9683-63ed-4a16-9060-7141646f117a.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:14 PM</td>
+        <td>
+           - You can log here as well (UI: alwaysFailingUiTest (Should FAILED...)).
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:33:15 PM</td>
+        <td>
+          Test Failed
+org.opentest4j.AssertionFailedError: 
+Expecting value to be false but was true
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">UI: alwaysSkippedUiTest (Should SKIPPED...)</p>
+            <p class="text-sm">
+              <span>6:33:15 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">UI: alwaysSkippedUiTest (Should SKIPPED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:15 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:15 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>6:33:15 PM</td>
+        <td>
+          Test Disabled
+public void com.poc.ui.UiTests.alwaysSkippedUiTest() is @Disabled
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="warning" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">API:: getRequestLog (Should WARNED...)</p>
+            <p class="text-sm">
+              <span>6:33:15 PM</span> / <span>00:00:01:330</span>
+              <span class="badge warning-bg log float-right">Warning</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-warning">API:: getRequestLog (Should WARNED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:15 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:16 PM</span>
+<span class='badge badge-default'>00:00:01:330</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -188,9 +323,156 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:51:35 PM</td>
+        <td>6:33:15 PM</td>
         <td>
-           - checking ExtentLogger for 'testGetRequest'
+           - You can log here as well (API:: getRequestLog (Should WARNED...)).
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          1 - checking ExtentLogger for 'getRequestLog'
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          2 - checking ExtentLogger for 'getRequestLog'
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log warning-bg">Warning</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          3 - checking ExtentLogger for 'getRequestLog'
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          4 - checking ExtentLogger for 'getRequestLog'
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          Test Passed
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="6"
+          author="NotMe"
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">API:: failingApiTest (Should FAILED...)</p>
+            <p class="text-sm">
+              <span>6:33:16 PM</span> / <span>00:00:00:069</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">API:: failingApiTest (Should FAILED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:16 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:16 PM</span>
+<span class='badge badge-default'>00:00:00:069</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">NotMe</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+           - You can log here as well (API:: failingApiTest (Should FAILED...)).
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          Test Failed
+org.opentest4j.AssertionFailedError: 
+Expecting value to be true but was false
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="7"
+          author="JohnDoe"
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">API:: testGetRequest (Should PASSED...)</p>
+            <p class="text-sm">
+              <span>6:33:16 PM</span> / <span>00:00:00:049</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">API:: testGetRequest (Should PASSED...)</h5>
+<span class='badge badge-success'>07.01.2024 6:33:16 PM</span>
+<span class='badge badge-danger'>07.01.2024 6:33:16 PM</span>
+<span class='badge badge-default'>00:00:00:049</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">JohnDoe</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+           - You can log here as well (API:: testGetRequest (Should PASSED...)).
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          1 - checking ExtentLogger for 'testGetRequest'
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          2 - checking ExtentLogger for 'testGetRequest'
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>6:33:16 PM</td>
+        <td>
+          3 - checking ExtentLogger for 'testGetRequest'
         </td>
       </tr>
   </tbody>
@@ -207,30 +489,112 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="container-fluid p-4 view dashboard-view">
+<div class="test-wrapper row view author-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Author</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">NotMe</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>NotMe</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>18:33:16 PM</td>
+<td>
+<a href="#" class="linked" test-id='6' id='6'>API:: failingApiTest (Should FAILED...)</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">JohnDoe</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>JohnDoe</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>18:33:16 PM</td>
+<td>
+<a href="#" class="linked" test-id='7' id='7'>API:: testGetRequest (Should PASSED...)</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 30, 2024 08:51:30 PM</h3>
+<h3>Jul 1, 2024 06:32:59 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 30, 2024 08:51:35 PM</h3>
+<h3>Jul 1, 2024 06:33:16 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>3</h3>
+<h3>2</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>3</h3>
 </div></div>
 </div>
 </div>
@@ -246,13 +610,13 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>3</b> tests passed
+<div><small data-tooltip='28%'>
+<b>2</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
-<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+<small data-tooltip='42%'><b>3</b> tests failed,
+<b>1</b> skipped, <b data-tooltip='14%'>1</b> others
 </small>
 </div>
 </div>
@@ -269,10 +633,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div><small data-tooltip='10%'><b>2</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>3</b> others
+<small data-tooltip='15%'><b>3</b> events failed,
+<b data-tooltip='%'>14</b> others
 </small>
 </div>
 </div>
@@ -288,19 +652,45 @@
 </div></div>
 <script>
 var timeline = {
-"Test Google search Smoke Test":2.767,"getRequestLog()":1.24,"testGetRequest()":0.052
+"UI: simpleTest (Should PASSED...)":11.843,"UI: smoke (Should PASSED...)":1.328,"UI: alwaysFailingUiTest (Should FAILED...)":1.879,"UI: alwaysSkippedUiTest (Should SKIPPED...)":0,"API:: getRequestLog (Should WARNED...)":1.33,"API:: failingApiTest (Should FAILED...)":0.069,"API:: testGetRequest (Should PASSED...)":0.049
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 author-container">
+<div class="card">
+<div class="card-header"><p>Author</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead>
+<tbody>
+<tr>
+<td>NotMe</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>JohnDoe</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 </div>
 </div>
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 3,
-failParent: 0,
-warningParent: 0,
-skipParent: 0,
+passParent: 2,
+failParent: 3,
+warningParent: 1,
+skipParent: 1,
 childCount: 5,
 passChild: 0,
 failChild: 0,
@@ -314,11 +704,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 0,
-failEvents: 0,
-warningEvents: 0,
-skipEvents: 0,
-infoEvents: 3
+passEvents: 2,
+failEvents: 3,
+warningEvents: 1,
+skipEvents: 1,
+infoEvents: 12
 };
 </script>        </div>
       </div>
